@@ -119,7 +119,60 @@ output = """
    *---------------------------------------*
 
 """
-command = input(output)
+print(output)
+command = input("Enter a command (Login / Register / Exit): \n")
 
-# Your implementation here...
+data_base = {}
+login_base = {}
+if command.lower() not in ["login", "register", "exit"]:
+	print("Invalid Command")
+
+elif command.lower() == "register":
+	print("Kinly fill out the form below to register")
+	username = input("Create Username: ")
+	password = input("Create Password: ")
+	initial_amount = float(input("Enter available balance: "))
+	deducted = 1500
+	print("User Created Successfully!")
+
+	data_base[username] = {
+	    "username": username,
+	    "password": password,
+	    "balance": initial_amount,
+	    "is_verified": False
+	}
+	
+	data_base.update(data_base)
+	print(data_base)
+
+	print("Do you wish to verify? yes or no")
+	get_var = input("Verification coast: 1500: ")
+
+	if get_var.lower() == "yes":
+		data_base[username]["balance"] -= deducted
+		data_base[username]["is_verified"] = True
+		print("Verification Update Successfully")
+	login_base[username] = {
+	    "username": username,
+	    "password": password,
+	    "balance": deducted,
+	    "is_verified": True
+	}	
+	login_base.update(login_base)
+	print(data_base)
+
+elif command.lower() == "login":
+	username = input("Enter Username: ")
+	password = input("Enter Password: ")
+
+	if username in username == username and password in password == password:
+		print("Login Successful!")
+	else: 
+		print("Invalid Username or Password")
+
+
+
+
+
+
 
